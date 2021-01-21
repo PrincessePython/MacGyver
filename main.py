@@ -81,8 +81,6 @@ playerY = 0
 playerX_change = 0
 playerY_change = 0
 
-
-
 # Setting a condition for a game loop
 playing = True
 # Game loop
