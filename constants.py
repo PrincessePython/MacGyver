@@ -23,7 +23,7 @@ START = []
 ZONE = []
 
 # Stock of object positions coordinates
-OBJECT_LIST = []
+OBJECTS_LIST = []
 
 # Stock of wall positions coordinates
 WALLS_LIST = []
