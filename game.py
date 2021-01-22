@@ -2,7 +2,7 @@ import sys
 import pygame
 from class_maze import Maze
 from class_game_settings import Game_settings
-from MacGyver import MacGyver
+from class_MacGyver import MacGyver
 
 
 def run_game():
