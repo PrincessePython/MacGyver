@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 # coding: utf-8
 
-# Board file
-
-from constants import *
 from random import sample
 
 
 class Maze:
+    # Regrouping coordinates of game elements like walls, start, end, guard ans objects
     def __init__(self, x_tile, y_tile, tile_size):
         self.x_tile = x_tile
         self.y_tile = y_tile
@@ -29,18 +27,19 @@ class Maze:
         with open("laby.txt", "r") as map_path:
             for y_axe, line in enumerate(map_path):
                 for x_axe, char in enumerate(line.strip('\n')):
-                    coor = ((x_axe, y_axe))
+                    coord = ((x_axe, y_axe))
                     if char == 'w':
                         self.walls.append(coord)
                     elif char == 's':
-                        self.start.append(coord)
+                        setattr(self, "start", coord)
                     elif char == 'g':
-                        self.guard.append(coord)
+                        setattr(self, "guard", coord)
                     elif char == 'e':
-                        self.exit.append(coord)
+                        setattr(self, "end", coord)
                     else:
                         self.corridors.append(coord)
 
+    # Randomly selecting coordinates of the available tiles and putting them in dictionary
     def Set_objects(self):
         objects = {}
         objects_list = sample(self.corridors, 3)

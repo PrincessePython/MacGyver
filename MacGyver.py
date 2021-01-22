@@ -6,7 +6,7 @@ class MacGyver:
         self.coord = start
         self.counter = 0
         self.status = "alive"
-        self.drug = False
+        self.dead = False
 
     def move(self, axe_x, axe_y, maze):
         # Move the main character
@@ -22,7 +22,7 @@ class MacGyver:
                     self.status = "dead"
                 else:
                     self.coord = next_step
-                    self.drug = True
+                    self.dead = True
             elif next_step == maze.exit:
                 self.coord = next_step
                 self.status = "escaped"
