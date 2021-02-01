@@ -6,8 +6,12 @@ from random import sample
 
 class Maze:
     # Class that will contain the coordinates of objects like walls, exit, guard, etc
-    def __init__(self):
-        self.tile_size = 32
+    # It will allow to read the map and to place 3 objects randomly in the maze
+
+    def __init__(self, leng, ht, tile_size):
+        self.leng = leng  # Length of the maze in tiles
+        self.ht = ht  # Height of the maze in tiles
+        self.tile_size = tile_size  # Tile dimensions modifiable
         self.walls = []
         self.start = []
         self.exit = []
@@ -15,7 +19,13 @@ class Maze:
         self.corridors = []
         self.objects = []
 
+    @property
+    def width(self):    # Width of the maze on the screen (15 * 32)
+        return self.leng * self.tile_size
 
+    @property
+    def height(self):   # Height of the maze on the screen (15 * 32)
+        return self.ht * self.tile_size
 
     def read_map(self):
         with open('laby.txt', 'r') as map_path:
@@ -33,10 +43,10 @@ class Maze:
                     elif char == ' ':
                         self.corridors.append(coord)
 
-    def placing_objects(self):
+    def place_objects(self):
         # Randomly place 3 objects in the maze
-        objects = {}
-        object_list = sample(self.corridors, 3)
-        for index, object in enumerate(object_list):
-            objects[object] = index
-
+        items = {}
+        items_list = sample(self.corridors, 3)  # Module sample is used to randomly place 3 objects in the maze
+        for index, object in enumerate(items_list):
+            items[object] = index
+        setattr(self, 'objects', items)

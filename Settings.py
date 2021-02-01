@@ -1,9 +1,9 @@
 # -*- coding : utf-8 -*-
 # coding: utf-8
 
-# Former class UI
 import pygame
 
+from Maze import Maze
 
 class Settings:
     def __init__(self, width, height):
@@ -17,18 +17,16 @@ class Settings:
         self.objects_image = [pygame.image.load('Images/needle.png'),
                               pygame.image.load('Images/syringe.png'),
                               pygame.image.load('Images/ether.png')]
-        self.grave_image = pygame.image.load('Images/dead.png')
-        self.zzz_image = pygame.image.load('Images/winner.png')
 
-    def draw(self):
-        for coord in maze.walls:
+    def draw(self, Maze):  # Draw images on the game window
+        for coord in Maze.walls:
             self.screen.blit(self.wall_image, coord)
-        for coord in maze.corridors:
+        for coord in Maze.corridors:
             self.screen.blit(self.floor_image, coord)
-        self.screen.blit(self.floor_image, board.start)
-        self.screen.blit(self.stairs_image, board.start)
-        self.screen.blit(self.floor_image, board.end)
-        self.screen.blit(self.stairs_image, board.end)
-        for key, value in maze.objects.items():
+        self.screen.blit(self.floor_image, Maze.start)
+        self.screen.blit(self.stairs_image, Maze.start)
+        self.screen.blit(self.floor_image, Maze.end)
+        self.screen.blit(self.stairs_image, Maze.end)
+        for key, value in Maze.objects.items():
             self.screen.blit(self.objects_image[value], key)
-        self.screen.blit(self.floor_image, board.guard)
+        self.screen.blit(self.floor_image, Maze.guard)
