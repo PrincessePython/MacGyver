@@ -1,52 +1,51 @@
 # -*- coding : utf-8 -*-
 # coding: utf-8
-
 from random import sample
 
 
 class Maze:
-    # Class that will contain the coordinates of objects like walls, exit, guard, etc
-    # It will allow to read the map and to place 3 objects randomly in the maze
-
-    def __init__(self, leng, ht, tile_size):
-        self.leng = leng  # Length of the maze in tiles
-        self.ht = ht  # Height of the maze in tiles
-        self.tile_size = tile_size  # Tile dimensions modifiable
+    """board object which regroup the coordinates of the game's elements
+       (walls, start, end, guard, components...)"""
+    def __init__(self, x_tile, y_tile, tile_size):
+        self.x_tile = x_tile
+        self.y_tile = y_tile
+        self.tile_size = tile_size
         self.walls = []
-        self.start = []
-        self.exit = []
-        self.guard = []
         self.corridors = []
-        self.objects = []
 
     @property
-    def width(self):    # Width of the maze on the screen (15 * 32)
-        return self.leng * self.tile_size
+    def width(self):
+        """board's width in px"""
+        return self.x_tile * self.tile_size
 
     @property
-    def height(self):   # Height of the maze on the screen (15 * 32)
-        return self.ht * self.tile_size
+    def height(self):
+        """board's height in px"""
+        return self.y_tile * self.tile_size
 
-    def read_map(self):
-        with open('laby.txt', 'r') as map_path:
-            for y_index, line in enumerate(map_path):
+    def read_map(self, map_path):
+        """reads a .txt : 'w'=wall, 's'=start, 'e'=end, 'g'=guard, ' '=empty"""
+        with open(map_path, 'r') as data:
+            for y_index, line in enumerate(data):
                 for x_index, char in enumerate(line.strip('\n')):
-                    coord = ((x_index * self.tile_size), (y_index * self.tile_size))
+                    coord = ((x_index * self.tile_size,
+                              y_index * self.tile_size))
                     if char == 'w':
                         self.walls.append(coord)
                     elif char == 's':
-                        self.start.append(coord)
+                        setattr(self, 'start', coord)
                     elif char == 'e':
-                        self.exit.append(coord)
+                        setattr(self, 'end', coord)
                     elif char == 'g':
-                        self.guard.append(coord)
-                    elif char == ' ':
+                        setattr(self, 'guard', coord)
+                    else:
                         self.corridors.append(coord)
 
     def place_objects(self):
-        # Randomly place 3 objects in the maze
-        items = {}
-        items_list = sample(self.corridors, 3)  # Module sample is used to randomly place 3 objects in the maze
-        for index, object in enumerate(items_list):
-            items[object] = index
-        setattr(self, 'objects', items)
+        """randomly pick-up 3 coordinates in a list of available tiles
+            and create a dict {coordinate : index}"""
+        objects = {}
+        component_list = sample(self.corridors, 3)
+        for index, component in enumerate(component_list):
+            objects[component] = index
+        setattr(self, 'objects', objects)

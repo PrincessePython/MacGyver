@@ -2,37 +2,53 @@
 # coding: utf-8
 import sys
 import pygame
-from Settings import Settings
-from Macgyver import Macgyver
-from Maze import Maze
+from settings import Settings
+from maze import Maze
+from macgyver import Macgyver
 
-pygame.init()
-pygame.display.set_caption("Mac Gyver Adventure")
 
-window = Maze(15, 15, 32)
-window.read_map()
-window.place_objects()
-player = Macgyver(window.start)
-settings = Settings(window.width, window.height)
+class Game:
 
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            running = False
+    def __init__(self):
+        pygame.init()
+        pygame.display.set_caption("MacGyver")
 
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                player.move(-32, 0, window)  # Move 32px on the left, therefore it's -32 px
-            elif event.key == pygame.K_RIGHT:
-                player.move(+32, 0, window)  # Move 32px on the right, therefore it's +32 px
-            elif event.key == pygame.K_UP:
-                player.move(0, -32, window)  # Move 32px up, therefore -32px
-            elif event.key == pygame.K_DOWN:
-                player.move(0, +32, window)  # Move 32pn down, therefore +32px
-            elif event.key == pygame.K_ESCAPE:
-                pygame.quit()
-                sys.exit()
-    settings.draw(Maze)
-    pygame.display.update()
+    def main(self):
+
+        window = Maze(15, 15, 32)
+        window.read_map('laby.txt')
+        window.place_objects()
+        mac = Macgyver(window.start)
+        interface = Settings(window.width, window.height)
+
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                elif event.type == pygame.KEYDOWN:
+                    if mac.status == 'alive':
+                        if event.key == pygame.K_UP:
+                            mac.move(0, -32, window)
+                        elif event.key == pygame.K_LEFT:
+                            mac.move(-32, 0, window)
+                        elif event.key == pygame.K_DOWN:
+                            mac.move(0, +32, window)
+                        elif event.key == pygame.K_RIGHT:
+                            mac.move(+32, 0, window)
+                    else:
+                        if event.key == pygame.K_RETURN:
+                            return self.main()
+                        elif event.key == pygame.K_ESCAPE:
+                            pygame.quit()
+                            sys.exit()
+
+            interface.draw(mac, window)
+            pygame.display.update()
+
+
+
+
+if __name__ == '__main__':
+   Game().main()
+
