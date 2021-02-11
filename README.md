@@ -10,14 +10,15 @@ This is a simple 2D maze game where MacGyver has to escape by passing through th
 
 ## Game features
 
-Game has only 1 level. Once the game is over, player can press ESC to close the window in order to exit the game.
-The game is over once MacGyver reached the exit (passing through the guard and having 3 objects collected), or, once MacGyver is in front of the guard without having collected 3 objects (MacGyver is killed by guard).
+<p>Game has only 1 level. Once the game is over, player can press ESC to close the window in order to exit the game.</p>
 
-The size of the maze if 15 times 15 tiles. In my configuration, the size of each tile is 32 pixels. Those parameters could be modified by replacing my images with yours.
+<p>The game is over once MacGyver reached the exit (passing through the guard and having 3 objects collected), or, once MacGyver is in front of the guard without having collected 3 objects (MacGyver is killed by guard).</p>
 
-MacGyver is controlled with arrow keys on the keyboard. Player can move MacGyver up/down and left/right 1 case (tile) at once.
+<p>The size of the maze if 15 times 15 tiles. In my configuration, the size of each tile is 32 pixels. Those parameters could be modified by replacing my images with yours.</p>
 
-Maze is in laby.txt file. Walls, hallways, starting position, guard and exit, could be modified as long as the size of maze is respected: 15 x 15 tiles.
+<p>MacGyver is controlled with arrow keys on the keyboard. Player can move MacGyver up/down and left/right 1 case (tile) at once.</p>
+
+<p>Maze is in laby.txt file. Walls, hallways, starting position, guard and exit, could be modified as long as the size of maze is respected: 15 x 15 tiles.</p>
 "w" = walls
 " " = hallways
 "s" = starting point
