@@ -20,11 +20,11 @@ In order to kill the guard, MacGyver has to collect 3 objects (needle, either, s
 <p>MacGyver is controlled with arrow keys on the keyboard. Player can move MacGyver up/down and left/right 1 case (tile) at once.</p>
 
 <p>Maze is in laby.txt file. Walls, hallways, starting position, guard and exit, could be modified as long as the size of maze is respected: 15 x 15 tiles.</p>
-- "w" = walls
-- " " = hallways
-- "s" = starting point
-- "g" = guard
-- "e" = exit
+ - "w" = walls
+ - " " = hallways
+ - "s" = starting point
+ - "g" = guard
+ - "e" = exit
 
 Objects are placed in the maze randomly and player can collect them by putting MacGyver over the objects. 
 
