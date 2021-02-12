@@ -32,11 +32,11 @@ MacGyver is controlled with arrow keys on the keyboard. Player can move MacGyver
 
 Maze is in `laby.txe` file Walls, hallways, starting position, guard and exit, could be modified as long as the size of maze is respected: 15 x 15 tiles.
 
-"w" = walls
-" " = hallways
-"s" = starting point
-"g" = guard
-"e" = exit
+- "w" = walls
+- " " = hallways
+- "s" = starting point
+- "g" = guard
+- "e" = exit
 
 Objects are placed in the maze randomly and player can collect them by putting MacGyver over the objects.
 
