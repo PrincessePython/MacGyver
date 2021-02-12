@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 # -*- coding : utf-8 -*-
-# coding: utf-8
+
 import sys
 import pygame
 from settings import Settings
@@ -11,7 +12,7 @@ class Game:
 
     def __init__(self):
         pygame.init()
-        pygame.display.set_caption("MacGyver")
+        pygame.display.set_caption('MacGyver')
 
     def main(self):
 
@@ -45,8 +46,6 @@ class Game:
 
             interface.draw(mac, window)
             pygame.display.update()
-
-
 
 
 if __name__ == '__main__':

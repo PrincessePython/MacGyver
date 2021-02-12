@@ -9,9 +9,10 @@ class Macgyver:
         self.status = 'alive'
         self.drug = False
 
-    def move(self, vector_x, vector_y, maze):
+    def move(self, vector_x, vector_y, maze, ):
         """move mac to the next square"""
-        x, y = self.coord
+
+        (x, y) = self.coord
         next_step = (x + vector_x, y + vector_y)
         if next_step in maze.corridors:
             self.coord = next_step

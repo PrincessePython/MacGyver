@@ -1,5 +1,6 @@
 # -*- coding : utf-8 -*-
 # coding: utf-8
+
 import pygame
 
 
@@ -38,13 +39,13 @@ class Settings:
         if mac.status != 'alive':
             if mac.status == 'dead':
                 self.screen.blit(self.grave_image, mac.coord)
-                self.display_txt('YOU LOSE !', 64, (29,0,255), self.screen,
+                self.display_txt('YOU LOSE !', 64, (29, 0, 255), self.screen,
                                  'center', 120)
             elif mac.status == 'escaped':
                 self.screen.blit(self.mac_image, mac.coord)
-                self.display_txt('YOU WIN !', 64, (29,0,255), self.screen,
+                self.display_txt('YOU WIN !', 64, (29, 0, 255), self.screen,
                                  'center', 120)
-            self.display_txt('Press ESCAPE to Quit', 24, (29,0,255),
+            self.display_txt('Press ESCAPE to Quit', 24, (29, 0, 255),
                              self.screen, 'center', 240)
         else:
             self.screen.blit(self.mac_image, mac.coord)
