@@ -1,6 +1,7 @@
 TileCrusader Artwork was created by Jesse Freeman (@jessefreeman) & 
 Dan Wolfe (@danthewolfe) and is licensed under the:
 
+
 	DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
 		Version 2, December 2004 
 
