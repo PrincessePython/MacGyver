@@ -3,16 +3,19 @@
 Coded in Python 3.8.6, using a PyGame 2.0.0 framework
 
 ### Installation
-1.  Clone this project to your computer.
-2. Install the virtual environment.
-Windows: `env/Scripts/activate.bat`
-Autre: 
-`source env/bin/activate`
+1. Go to Git terminal and position yourself in the directory where you want to have this project cloned.
 
-3. Install all requirements from `requirements.txt`
-4. Run the program by writing python `game.py` in terminal.
+2.  Clone this project by using the following command on Git terminal:  `git clone https://github.com/PrincessePython/MacGyver.git`
 
-5. Have fun !
+3. Install the project requirements by typing in terminal: `pip install -r requirements.txt`
+
+4. Activate the virtual environment.
+	- Windows: `env/Scripts/activate.bat`
+	- Other: Please feel free to contribute as I don't use other OS
+
+5. Run the program by typing `python game.py` in terminal.
+
+6. Have fun !
 
 
 ### Game
@@ -30,7 +33,7 @@ The size of the maze if 15 times 15 tiles. In my configuration, the size of each
 
 MacGyver is controlled with arrow keys on the keyboard. Player can move MacGyver up/down and left/right 1 case (tile) at once.
 
-Maze is in `laby.txe` file Walls, hallways, starting position, guard and exit, could be modified as long as the size of maze is respected: 15 x 15 tiles.
+Maze is in `laby.txt` file Walls, hallways, starting position, guard and exit, could be modified as long as the size of maze is respected: 15 x 15 tiles.
 
 - "w" = walls
 - " " = hallways
@@ -42,6 +45,14 @@ Objects are placed in the maze randomly and player can collect them by putting M
 
 MacGyver is the only element that can be animated in the game.
 
+### Images
+Some of the images where taken from https://www.flaticon.com website. 
+
+### Files
+- **game** : This is the main file that allows you to start the game
+- **macgyver** : Creation of MacGyver and managing his moves
+- **maze** : Board object that regroups the coordinates of game's elements; reads the map path from .txt file; places objects randomly in the game
+- **settings** : Contains all the visual recourses used in the game (images, text); draws the game interface.
 
 
 
