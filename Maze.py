@@ -6,7 +6,7 @@ from random import sample
 
 class Maze:
     """board object which regroup the coordinates of the game's elements
-       (walls, start, end, guard, components...)"""
+       (walls, start, end, guard, objects...)"""
     def __init__(self, x_tile, y_tile, tile_size):
         self.x_tile = x_tile
         self.y_tile = y_tile
