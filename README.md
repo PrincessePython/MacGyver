@@ -7,11 +7,15 @@ Coded in Python 3.8.6, using a PyGame 2.0.0 framework
 
 2.  Clone this project by using the following command on Git terminal:  `git clone https://github.com/PrincessePython/MacGyver.git`
 
-3. Install the project requirements by typing in terminal: `pip install -r requirements.txt`
+3. Install virtual environment by typing the following command (Windows) : pip install virtualenv`
+
 
 4. Activate the virtual environment.
 	- Windows: `env/Scripts/activate.bat`
 	- Other: Please feel free to contribute as I don't use other OS
+	
+5. Install the project requirements by typing in terminal: `pip install -r requirements.txt`
+
 
 5. Run the program by typing `python game.py` in terminal.
 
